@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Referat Die Räuber</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<style>
+			.slide-background-content {
+				opacity: 0.6;
+			}
+
+			.two-columns {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: row-reverse;
+			}
+
+			.two-columns img {
+				width: 40%;
+			}
+
+			.li-smaller * {
+				font-size: 90%;
+			}
+		</style>
+		<link rel="stylesheet" href="plugin/highlight/solarized.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-background-image="res/background.jpg">
+					<h1>Die Räuber</h1>
+					<h6>Jakob H.</h6>
+				</section>
+				<section data-background-image="res/background.jpg">
+					<h2>Agenda</h2>
+					<ul class="li-animate">
+						<li>Überblick</li>
+					</ul>
+				</section>
+				<section data-background-image="res/background.jpg">
+					<h1>Quellen</h1>
+					<ul class="li-smaller">
+					</ul>
+					<h1>Repository</h1>
+					<ul class="li-smaller"><li>https://github.com/Jak0bH/ReferatDieRaeuber</li></ul>
+				</section>
+				<section data-background-image="res/background.jpg">
+					<h2>Danke für eure Aufmerksamkeit!</h2>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				progress: false,
+				controlsTutorial: false,
+
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+		<script>
+			addFragmentClass(document.getElementsByClassName("li-animate"));
+
+			function addFragmentClass(elements) {
+				for (element of elements) {
+					for (child of element.children) {
+						if (!child.classList.contains("li-animate-ignore"))
+							child.classList.add("fragment");
+						for (child2 of child.children) {
+							if (child2.nodeName.toLowerCase() == "ul" || child2.nodeName.toLowerCase() == "ol")
+								addFragmentClass([child2]);
+						}
+					}
+				}
+			}
+		</script>
+	</body>
+</html>
